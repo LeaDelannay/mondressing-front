@@ -1,0 +1,44 @@
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+    <span class="col-3" >Code postal</span>
+    <span class="col-4" >Pays</span>
+  </div>
+  <div class="row p-1">
+    <input class="col-3" type="text" [(ngModel)]="zipCode"  placeholder="33000">
+    <input class="col-4" type="text" [(ngModel)]="countryCode"  placeholder="fr">
+    <button class="col-4 offset-1 btn btn-lg btn-outline-success btn-block" type="button" (click)="getPredictions()">Chercher !</button>
+  </div>
+
+  <div *ngIf="weatherPredictions">
+    <table class="table" >
+      <thead>
+      <tr>
+        <th scope="col">Pour le code postal {{selectedZipCode}}, le :</th>
+        <th scope="col">Température</th>
+        <th scope="col">Nuages</th>
+        <th scope="col">Meteo</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let dailyPrediction of dailyPredictions">
+      <tr class="bg-info">
+        <th scope="row">{{dailyPrediction[0].dt_txt.slice(0,10)}}</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let prediction of dailyPrediction">
+        <td>{{prediction.dt_txt.slice(-8)}}</td>
+        <td>{{prediction.main.temp}}°c</td>
+        <td>
+          <img height="42" src="http://openweathermap.org/img/wn/{{prediction.weather[0].icon}}@2x.png">
+        </td>
+        <td>{{prediction.weather[0].description}}</td>
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

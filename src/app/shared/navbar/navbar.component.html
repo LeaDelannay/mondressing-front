@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light navbar-default">
+   <a class="navbar-brand, srisakdi" routerLink="homepage">MonDressing</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         <a *ngIf="!authService.isLoggedIn()" routerLink="login" class="dropdown-item" id="seConnecter">Se connecter</a>
+         <a *ngIf="!authService.isLoggedIn()" routerLink="register" class="dropdown-item">S'enregistrer</a>
+         <li class="nav-item dropdown" *ngIf="authService.isLoggedIn()">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+               <i class="fab fa-fort-awesome"></i> Dressing
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" routerLink="clothes-list"><i class="fas fa-tshirt menuIcon"></i> Tous mes vêtements</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" routerLink="outfit-list"><i class="fas fa-female menuIcon"></i> Toutes mes tenues</a>
+            </div>
+         </li>
+         <li class="nav-item dropdown" *ngIf="authService.isLoggedIn()">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-plus-circle"></i> Création
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="clothe-create"><i class="fas fa-tshirt menuIcon"></i> Ajouter un vêtement</a>
+            <div class="dropdown-divider"></div>
+               <a class="dropdown-item" routerLink="create-outfit"><i class="fas fa-female menuIcon"></i> Ajouter une tenue</a>
+            </div>
+         </li>
+         <li class="nav-item" *ngIf="authService.isLoggedIn()">
+            <a class="nav-link" routerLink="weather"><i class="fas fa-cloud-sun"></i> Météo</a>
+         </li>
+      </ul>
+   </div>
+   <a class="navbar-brand" id="paw" *ngIf="authService.isLoggedIn()" (click)="authService.logout()"><i class="fas fa-user-lock fa-1x"></i></a>
+   <!-- <a class="navbar-brand" id="paw" *ngIf="authService.isLoggedIn()" (click)="authService.logout()"><i class="fas fa-paw"></i></a> -->
+</nav>

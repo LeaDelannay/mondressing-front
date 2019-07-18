@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{clotheDetail.NOM_VET}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <img *ngIf="clotheDetail.IMG_VET === null" src="assets/pictures/tshirt.png" alt="" class="d-flex align-items-center" [style.max-width.px]="200"
+    [style.max-height.px]="125">
+  <img *ngIf="clotheDetail.IMG_VET !== null" src="{{clotheDetail.IMG_VET}}" alt="" class="d-flex align-items-center" [style.max-width.px]="200"
+    [style.max-height.px]="125">
+
+  <p><span class="gs">Couleur(s) :</span><br>{{clotheDetail.couleurs}}</p>
+  <p><span class="gs">Marque :</span><br>{{clotheDetail.NOM_MARQUE}}</p>
+  <p><span class="gs">Caractéristique(s) :</span><br>{{clotheDetail.caracteristiques}}</p>
+  <p><span class="gs">Occasion(s) :</span><br>{{clotheDetail.occasions}}</p>
+  <p><span class="gs">Catégorie :</span><br>{{clotheDetail.LIBEL_CAT}} </p>
+  <p><span class="gs">Description :</span><br>{{clotheDetail.DESCRIPT_VET}}</p>
+  <p><span class="gs">Note :</span><br>{{clotheDetail.NUM_NOTE}}</p>
+</div>
+
+<div class="modal-footer flex-wrap justify-content-center justify-content-sm-between">
+  <button type="button" class="btn btn-outline-warning" (click)="onEdit()"><i class="fas fa-edit fa-2x"></i></button>
+  <button type="button" class="btn btn-outline-danger" (click)="onDelete(this.idClothe)"><i class="fas fa-trash-alt fa-2x"></i></button>
+  <button type="button" class="btn btn-outline-success text-center"
+    (click)="activeModal.close('Close click')"><i class="fas fa-times-circle fa-2x"></i></button>
+</div>

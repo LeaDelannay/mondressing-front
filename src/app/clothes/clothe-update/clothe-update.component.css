@@ -1,0 +1,70 @@
+h2{
+   text-align: center;
+   margin-top: 30px;
+}
+
+/* ----- Formulaire [DEBUT]----- */
+
+form{/* Formulaires */
+   margin-top: 30px !important;
+}
+
+.text-muted{/* Texte de vérification */
+   color: red !important;
+}
+
+form span{ /* Texte sous le formulaire */
+   color: red;
+}
+
+p{
+   text-align: center;
+   color: red;
+}
+
+.ng-valid[required], .ng-valid.required  {/* Validation des inputs */
+   border-left: 5px solid #42A948; /* green */
+   border-right: 5px solid #42A948; /* green */
+ }
+
+ .ng-invalid:not(form)  {/* Invalid du formulaire */
+   border-left: 5px solid #a94442; /* red */
+   border-right: 5px solid #a94442; /* red */
+ }
+ input, p, select, option, textarea{
+    font-size: 15px;
+ }
+ input[type="checkbox"]{
+   display: inline;
+   font-size: 5px;
+   outline: none;
+ }
+ .labelSize{
+    font-size: 15px;
+ }
+ .btn-outline-success{
+    color: #4DE8BE !important;
+    border-color: #4DE8BE !important;
+ }
+ .blueLink{
+   font-size: 15px;
+   color: #4DE8BE !important;
+   text-decoration: underline;
+   text-align: left;
+}
+.labelPasImage{
+   font-size: 15px;
+}
+.fa-plus-circle{
+   color: #4DE8BE !important;
+}
+.image{
+   max-width: 500px;
+   max-height: 500px;
+   display: block;
+   margin: 0 auto;
+   padding: 5px;
+   border: solid 2px gray;
+   border-radius: 5px;
+}
+/* ***** Formulaire [FIN] ***** */

@@ -1,0 +1,14 @@
+tr.bg-info, tr.bg-info>th, tr.bg-info>td{
+   background-color: #4DE8BE;
+}
+.btn-outline-success:hover{
+   color: #fff!important;
+   background-color: #4DE8BE;
+   border-color: #4DE8BE;
+}
+.container{
+   margin-top: 30px;
+}
+.table{
+   margin-top: 30px;
+}

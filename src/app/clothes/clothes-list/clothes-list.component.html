@@ -1,0 +1,60 @@
+<div id="clothes-list">
+  <div>
+    <span>
+      <select id="filterSelect" name="filterSelect" #filterSelect="ngModel" [(ngModel)]="selectedFilter">
+        <option value="clothes"> --- Filtrer --- </option>
+        <option value="features">Par caractéristique</option>
+        <option value="categories">Par catégorie</option>
+        <option value="colors">Par couleur</option>
+        <option value="brands">Par marque</option>
+        <option value="notes">Par note</option>
+        <option value="occasions">Par occasion</option>
+      </select>
+    </span>
+
+    <span>
+      <select id="filterDetail" name="filterDetail" *ngIf="filterSelect.value == 'clothes'" #filterDetail="ngModel" [(ngModel)]="selectedOption">
+        <option value=""> --------------- </option>
+      </select>
+      <select id="filterDetail" name="filterDetail" *ngIf="filterSelect.value == 'features'"
+        [(ngModel)]="selectedOption">
+        <option value=""> --------------- </option>
+        <option *ngFor="let feature of this.features" value="{{feature.ID_CARACT}}"> {{feature.LIBEL_CARACT}} </option>
+      </select>
+      <select id="filterDetail" name="filterDetail" *ngIf="filterSelect.value == 'categories'"
+        [(ngModel)]="selectedOption">
+        <option value=""> --------------- </option>
+        <option *ngFor="let category of this.categories" value="{{category.ID_CAT}}"> {{category.LIBEL_CAT}} </option>
+      </select>
+      <select id="filterDetail" name="filterDetail" *ngIf="filterSelect.value == 'colors'" [(ngModel)]="selectedOption">
+        <option value=""> --------------- </option>
+        <option *ngFor="let color of this.colors" value="{{color.ID_COUL}}"> {{color.LIBEL_COUL}} </option>
+      </select>
+      <select id="filterDetail" name="filterDetail" *ngIf="filterSelect.value == 'brands'" [(ngModel)]="selectedOption">
+        <option value=""> --------------- </option>
+        <option *ngFor="let brand of this.brands" value="{{brand.ID_MARQUE}}"> {{brand.NOM_MARQUE}} </option>
+      </select>
+      <select id="filterDetail" name="filterDetail" *ngIf="filterSelect.value == 'notes'" [(ngModel)]="selectedOption">
+        <option value=""> --------------- </option>
+        <option *ngFor="let note of this.notes" value="{{note.ID_NOTE}}"> {{note.NUM_NOTE}} </option>
+      </select>
+      <select id="filterDetail" name="filterDetail" *ngIf="filterSelect.value == 'occasions'"
+        [(ngModel)]="selectedOption">
+        <option value=""> --------------- </option>
+        <option *ngFor="let occasion of this.occasions" value="{{occasion.ID_OCCAS}}"> {{occasion.LIBEL_OCCAS}}
+        </option>
+      </select>
+    </span>
+  </div>
+
+  <div *ngIf="[codeHttp] == 204" id="filterDontExists" class="text-muted">Il n'y a pas de vêtement
+    correspondant à cette recherche.</div>
+  <div class="flexpap" *ngIf="[codeHttp] == 304 || [codeHttp] == 200">
+    <div class="flexenf" *ngFor="let clothe of this.clothes" (click)="open(clothe.ID_VET)">
+      <div class="titre"> {{clothe.NOM_VET}} </div>
+      <img *ngIf="clothe.IMG_VET" [src]="clothe.IMG_VET" [style.width.px]="150"  [style.height.px]="95"/>
+      <img *ngIf="!clothe.IMG_VET" src="assets/pictures/tshirt.png" [style.width.px]="100" />
+    </div>
+  </div>
+
+</div>

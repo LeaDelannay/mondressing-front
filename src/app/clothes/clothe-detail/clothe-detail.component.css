@@ -1,0 +1,18 @@
+.btn-outline-warning:hover{
+   color: #fff;
+}
+.modal-body img{
+   display: block;
+   margin: 0px auto 20px;
+}
+h4{
+   font-weight: bold;
+   color:#4DE8BE;
+}
+span.gs{
+   font-weight: bold;
+   text-decoration: underline;
+}
+.modal-footer button{
+   margin-top: 10px;
+}
